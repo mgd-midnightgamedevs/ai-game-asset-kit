@@ -7,3 +7,5 @@ __pycache__/
 .env
 .env.*
 *.key
+# 내보낸 실행 파일(웹·윈도우)
+/build/
