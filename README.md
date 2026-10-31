@@ -17,7 +17,7 @@ M.G.D(퇴근 후 게임 만드는 두 아빠) 유튜브 영상에서 만든 것�
 
 PC에서 키보드로 한다(휴대폰은 안 된다).
 
-- **브라우저에서 바로:** https://mgd-midnightgamedevs.github.io/ai-game-asset-kit/ — 설치 없이 실행. 처음 로딩이 약 90MB다. 용량을 줄이려고 모델 텍스처 해상도를 낮췄다.
+- **브라우저에서 바로:** https://mgd-midnightgamedevs.github.io/ai-game-asset-kit/ — 설치 없이 실행. 웹 판은 DAY 1~4까지다(전부 하려면 윈도우 판이나 Godot). 처음 로딩이 약 90MB다. 용량을 줄이려고 모델 텍스처 해상도를 낮췄다.
 - **윈도우:** [Releases](https://github.com/mgd-midnightgamedevs/ai-game-asset-kit/releases/latest)에서 `commute-parking-war-windows.zip`을 받아 풀고 `commute-parking-war.exe`를 실행한다. 서명하지 않은 파일이라 "Windows의 PC 보호" 창이 뜨면 추가 정보 → 실행.
 
 Godot에서 직접 열기:

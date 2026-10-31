@@ -54,7 +54,7 @@ func _ready() -> void:
 		if i == 0:
 			b.grab_focus.call_deferred()
 
-	if WebBridge.enabled:
+	if WebBridge.has_board:
 		var board := Button.new()
 		board.text = "랭킹 보기"
 		board.add_theme_font_override("font", FONT)

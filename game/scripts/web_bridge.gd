@@ -9,6 +9,8 @@ const DEMO_DAYS := 4
 
 var enabled := OS.has_feature("web")
 var demo := OS.has_feature("web_demo")
+## 리더보드 페이지(window.mgd)가 붙은 웹 판에서만 랭킹 버튼을 보인다. GitHub Pages 판에는 없다
+var has_board := enabled and bool(JavaScriptBridge.eval("!!window.mgd", true))
 
 
 func _ready() -> void:
