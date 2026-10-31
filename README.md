@@ -4,7 +4,7 @@
 
 M.G.D(퇴근 후 게임 만드는 두 아빠) 유튜브 영상에서 만든 것을 그대로 공유합니다. AI(Claude Code)에게 Tripo CLI 문서를 읽혀 **3D 에셋 툴킷**을 만들게 하고, 그 툴킷으로 뽑은 차·사람·소품을 **Godot 게임**에 넣었습니다.
 
-- 영상: (공개 후 링크)
+- 영상: https://youtu.be/rhIkJIXx7Gs
 - 게임: `game/` — Godot 4.7 프로젝트. 출근길 마지막 한 칸을 앞차보다 먼저, 날아서 차지하는 게임(DAY 1~8 + 스턴트 코스 + 시연장)
 - 툴킷: `game/tools/tripo_kit.py` — Tripo CLI 위에서 그림 한 장·글 한 줄 → 게임에 바로 넣는 3D 에셋
 - AI에게 실제로 한 요청: [`docs/prompts.md`](docs/prompts.md)
