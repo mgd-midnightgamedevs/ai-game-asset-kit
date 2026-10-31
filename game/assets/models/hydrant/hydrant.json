@@ -1,0 +1,12 @@
+{
+  "name": "hydrant",
+  "warnings": [],
+  "kind": "prop",
+  "size_m": [
+    0.515,
+    0.8,
+    0.452
+  ],
+  "animations": [],
+  "requested_animations": []
+}

@@ -1,0 +1,62 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/day1.gd" id="1_day1"]
+[ext_resource type="PackedScene" path="res://scenes/roadster.tscn" id="2_roadster"]
+[ext_resource type="Script" path="res://scripts/chase_camera.gd" id="3_camera"]
+[ext_resource type="Script" path="res://scripts/hud.gd" id="4_hud"]
+
+[sub_resource type="ProceduralSkyMaterial" id="sky_mat"]
+sky_top_color = Color(0.2, 0.36, 0.62, 1)
+sky_horizon_color = Color(0.86, 0.74, 0.62, 1)
+ground_bottom_color = Color(0.2, 0.22, 0.26, 1)
+ground_horizon_color = Color(0.86, 0.74, 0.62, 1)
+
+[sub_resource type="Sky" id="sky"]
+sky_material = SubResource("sky_mat")
+
+[sub_resource type="Environment" id="env"]
+background_mode = 2
+sky = SubResource("sky")
+ambient_light_source = 3
+ambient_light_energy = 0.55
+tonemap_mode = 3
+tonemap_white = 6.0
+ssao_enabled = true
+ssao_radius = 1.4
+ssao_intensity = 1.8
+ssil_enabled = true
+glow_enabled = true
+glow_intensity = 0.35
+glow_bloom = 0.04
+adjustment_enabled = true
+adjustment_contrast = 1.05
+adjustment_saturation = 1.06
+fog_enabled = true
+fog_light_color = Color(0.78, 0.7, 0.62, 1)
+fog_density = 0.004
+fog_sky_affect = 0.0
+
+[node name="Day1" type="Node3D"]
+script = ExtResource("1_day1")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("env")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, -0.321394, 0.383022, 0, 0.766044, 0.642788, -0.5, -0.55667, 0.663414, 0, 0, 0)
+light_color = Color(1, 0.93, 0.82, 1)
+light_energy = 1.25
+shadow_enabled = true
+shadow_blur = 1.2
+directional_shadow_max_distance = 120.0
+
+[node name="Roadster" parent="." instance=ExtResource("2_roadster")]
+
+[node name="Camera" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
+far = 500.0
+current = true
+script = ExtResource("3_camera")
+target = NodePath("../Roadster")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("4_hud")

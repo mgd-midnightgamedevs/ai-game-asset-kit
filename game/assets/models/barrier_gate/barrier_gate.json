@@ -1,0 +1,12 @@
+{
+  "name": "barrier_gate",
+  "warnings": [],
+  "kind": "prop",
+  "size_m": [
+    0.692,
+    1.349,
+    3.5
+  ],
+  "animations": [],
+  "requested_animations": []
+}

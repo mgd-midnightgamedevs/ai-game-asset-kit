@@ -1,0 +1,12 @@
+{
+  "name": "van",
+  "warnings": [],
+  "kind": "car",
+  "size_m": [
+    1.768,
+    1.782,
+    3.6
+  ],
+  "animations": [],
+  "requested_animations": []
+}

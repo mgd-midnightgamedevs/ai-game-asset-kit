@@ -1,0 +1,54 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_game"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="2_level"]
+[ext_resource type="PackedScene" path="res://scenes/roadster.tscn" id="3_roadster"]
+[ext_resource type="Script" path="res://scripts/chase_camera.gd" id="4_camera"]
+[ext_resource type="Script" path="res://scripts/hud.gd" id="5_hud"]
+
+[sub_resource type="ProceduralSkyMaterial" id="sky_mat"]
+sky_top_color = Color(0.12, 0.24, 0.52, 1)
+sky_horizon_color = Color(0.55, 0.64, 0.78, 1)
+ground_bottom_color = Color(0.2, 0.22, 0.26, 1)
+ground_horizon_color = Color(0.55, 0.64, 0.78, 1)
+
+[sub_resource type="Sky" id="sky"]
+sky_material = SubResource("sky_mat")
+
+[sub_resource type="Environment" id="env"]
+background_mode = 2
+sky = SubResource("sky")
+ambient_light_source = 3
+ambient_light_energy = 0.55
+tonemap_mode = 2
+ssao_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.5, 0.58, 0.72, 1)
+fog_density = 0.003
+fog_sky_affect = 0.0
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_game")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("env")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.422618, -0.694272, 0.582564, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 0, 0)
+light_energy = 1.1
+shadow_enabled = true
+directional_shadow_max_distance = 140.0
+
+[node name="Level" type="Node3D" parent="."]
+script = ExtResource("2_level")
+
+[node name="Roadster" parent="." instance=ExtResource("3_roadster")]
+
+[node name="Camera" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
+far = 600.0
+current = true
+script = ExtResource("4_camera")
+target = NodePath("../Roadster")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("5_hud")

@@ -1,0 +1,70 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_game"]
+[ext_resource type="Script" path="res://scripts/demo_stage.gd" id="2_stage"]
+[ext_resource type="PackedScene" path="res://scenes/roadster.tscn" id="3_roadster"]
+[ext_resource type="Script" path="res://scripts/chase_camera.gd" id="4_camera"]
+[ext_resource type="Script" path="res://scripts/hud.gd" id="5_hud"]
+
+[sub_resource type="ProceduralSkyMaterial" id="sky_mat"]
+sky_top_color = Color(0.02, 0.035, 0.07, 1)
+sky_horizon_color = Color(0.1, 0.14, 0.22, 1)
+ground_bottom_color = Color(0.02, 0.03, 0.05, 1)
+ground_horizon_color = Color(0.1, 0.14, 0.22, 1)
+sun_angle_max = 0.0
+
+[sub_resource type="Sky" id="sky"]
+sky_material = SubResource("sky_mat")
+
+[sub_resource type="Environment" id="env"]
+background_mode = 2
+sky = SubResource("sky")
+ambient_light_source = 2
+ambient_light_color = Color(0.36, 0.43, 0.52, 1)
+ambient_light_energy = 0.45
+tonemap_mode = 3
+tonemap_exposure = 1.0
+glow_enabled = true
+glow_intensity = 0.7
+glow_bloom = 0.05
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.031, 0.055, 0.098, 1)
+fog_depth_begin = 90.0
+fog_depth_end = 250.0
+fog_sky_affect = 0.0
+
+[node name="DemoStage" type="Node3D"]
+script = ExtResource("1_game")
+save_section = "demo_stage"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("env")
+
+[node name="KeyLight" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.789352, -0.435980, 0.432255, 0.000000, 0.704067, 0.710134, -0.613941, 0.560546, -0.555757, 0, 0, 0)
+light_color = Color(0.839, 0.902, 0.961, 1)
+light_energy = 1.1
+sky_mode = 1
+shadow_enabled = true
+directional_shadow_max_distance = 120.0
+
+[node name="RimLight" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.884918, 0.125349, -0.448561, -0.000000, 0.963102, 0.269137, 0.465746, -0.238164, 0.852266, 0, 0, 0)
+light_color = Color(0.38, 0.545, 0.859, 1)
+light_energy = 0.5
+sky_mode = 1
+
+[node name="Level" type="Node3D" parent="."]
+script = ExtResource("2_stage")
+
+[node name="Roadster" parent="." instance=ExtResource("3_roadster")]
+
+[node name="Camera" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
+far = 600.0
+current = true
+script = ExtResource("4_camera")
+target = NodePath("../Roadster")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("5_hud")

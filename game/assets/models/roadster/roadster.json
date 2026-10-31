@@ -1,0 +1,61 @@
+{
+  "name": "roadster",
+  "warnings": [],
+  "wheel_method": "부품 나누기 결과에서 바퀴 고름",
+  "kind": "car",
+  "size_m": [
+    1.327,
+    0.74,
+    2.5
+  ],
+  "wheels": {
+    "front-left": {
+      "godot_pos": [
+        0.5381,
+        0.2178,
+        0.6772
+      ],
+      "radius": 0.2177,
+      "width": 0.2329
+    },
+    "front-right": {
+      "godot_pos": [
+        -0.5261,
+        0.2178,
+        0.6773
+      ],
+      "radius": 0.2176,
+      "width": 0.2264
+    },
+    "back-left": {
+      "godot_pos": [
+        0.5374,
+        0.224,
+        -0.7752
+      ],
+      "radius": 0.2237,
+      "width": 0.2341
+    },
+    "back-right": {
+      "godot_pos": [
+        -0.5218,
+        0.2258,
+        -0.7727
+      ],
+      "radius": 0.2258,
+      "width": 0.2347
+    }
+  },
+  "wheel_radius": 0.2212,
+  "wheel_x": 0.53085,
+  "wheel_z_front": 0.67725,
+  "wheel_z_back": -0.77395,
+  "wheel_center_y": 0.22135,
+  "nodes": [
+    "body",
+    "wheel-front-left",
+    "wheel-front-right",
+    "wheel-back-left",
+    "wheel-back-right"
+  ]
+}

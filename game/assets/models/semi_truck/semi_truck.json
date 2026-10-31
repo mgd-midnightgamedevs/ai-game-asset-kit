@@ -1,0 +1,12 @@
+{
+  "name": "semi_truck",
+  "warnings": [],
+  "kind": "car",
+  "size_m": [
+    3.718,
+    5.15,
+    11.8
+  ],
+  "animations": [],
+  "requested_animations": []
+}

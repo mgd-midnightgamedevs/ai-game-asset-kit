@@ -1,0 +1,14 @@
+{
+  "name": "pickup",
+  "warnings": [
+    "차가 옆으로 누워 있어 90도 돌렸습니다. 앞뒤가 반대면 --yaw 180 으로 다시 돌리세요"
+  ],
+  "kind": "car",
+  "size_m": [
+    1.524,
+    1.191,
+    3.4
+  ],
+  "animations": [],
+  "requested_animations": []
+}

@@ -1,0 +1,12 @@
+{
+  "name": "hatchback",
+  "warnings": [],
+  "kind": "car",
+  "size_m": [
+    1.561,
+    1.39,
+    2.9
+  ],
+  "animations": [],
+  "requested_animations": []
+}

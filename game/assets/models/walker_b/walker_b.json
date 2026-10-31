@@ -1,0 +1,18 @@
+{
+  "name": "walker_b",
+  "warnings": [],
+  "kind": "person",
+  "size_m": [
+    0.717,
+    1.75,
+    0.745
+  ],
+  "animations": [
+    "angry_01",
+    "walk"
+  ],
+  "requested_animations": [
+    "preset:biped:walk",
+    "preset:biped:angry_01"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "ev_charger",
+  "warnings": [],
+  "kind": "prop",
+  "size_m": [
+    0.659,
+    1.3,
+    0.659
+  ],
+  "animations": [],
+  "requested_animations": []
+}

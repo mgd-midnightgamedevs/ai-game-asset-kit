@@ -1,0 +1,9 @@
+# 운영체제
+.DS_Store
+Thumbs.db
+# 파이썬
+__pycache__/
+# 비밀 값
+.env
+.env.*
+*.key

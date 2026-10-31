@@ -1,0 +1,20 @@
+{
+  "name": "karen",
+  "warnings": [],
+  "kind": "person",
+  "size_m": [
+    0.622,
+    1.65,
+    0.53
+  ],
+  "animations": [
+    "angry_01",
+    "complain_01",
+    "walk"
+  ],
+  "requested_animations": [
+    "preset:biped:walk",
+    "preset:biped:angry_01",
+    "preset:biped:complain_01"
+  ]
+}

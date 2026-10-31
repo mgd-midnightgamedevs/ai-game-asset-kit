@@ -1,0 +1,6 @@
+streetlight | modern street light pole, gray metal, no text | prop | 4.5
+traffic_light | traffic light on a pole, generic, no text | prop | 4.0
+tree | small street tree in a square planter | prop | 3.5
+bench | wooden park bench with metal legs | prop | 1.8
+cone | orange traffic cone with white stripes | prop | 0.7
+hydrant | red fire hydrant | prop | 0.8

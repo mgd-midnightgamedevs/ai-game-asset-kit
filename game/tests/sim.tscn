@@ -1,0 +1,9 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://tests/sim.gd" id="1_sim"]
+[ext_resource type="PackedScene" path="res://scenes/main.tscn" id="2_main"]
+
+[node name="Sim" type="Node"]
+script = ExtResource("1_sim")
+
+[node name="Main" parent="." instance=ExtResource("2_main")]

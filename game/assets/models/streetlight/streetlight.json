@@ -1,0 +1,12 @@
+{
+  "name": "streetlight",
+  "warnings": [],
+  "kind": "prop",
+  "size_m": [
+    4.201,
+    4.5,
+    1.295
+  ],
+  "animations": [],
+  "requested_animations": []
+}

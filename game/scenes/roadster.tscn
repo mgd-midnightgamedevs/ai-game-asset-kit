@@ -1,0 +1,197 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/roadster.gd" id="1_script"]
+[ext_resource type="AudioStream" path="res://vendor/kenney_starter_kit_racing/audio/skid.ogg" id="2_skid"]
+[ext_resource type="AudioStream" path="res://vendor/kenney_starter_kit_racing/audio/engine.ogg" id="3_engine"]
+[ext_resource type="AudioStream" path="res://vendor/kenney_starter_kit_racing/audio/impact.ogg" id="4_impact"]
+[ext_resource type="PackedScene" path="res://assets/models/roadster/roadster.glb" id="5_roadster"]
+
+[sub_resource type="StandardMaterial3D" id="mat_body"]
+albedo_color = Color(0.93, 0.2, 0.16, 1)
+roughness = 0.45
+
+[sub_resource type="StandardMaterial3D" id="mat_dark"]
+albedo_color = Color(0.1, 0.1, 0.12, 1)
+roughness = 0.8
+
+[sub_resource type="StandardMaterial3D" id="mat_glass"]
+albedo_color = Color(0.12, 0.16, 0.24, 1)
+roughness = 0.2
+
+[sub_resource type="StandardMaterial3D" id="mat_accent"]
+albedo_color = Color(1, 0.86, 0.2, 1)
+
+[sub_resource type="StandardMaterial3D" id="mat_metal"]
+albedo_color = Color(0.55, 0.57, 0.62, 1)
+metallic = 0.6
+roughness = 0.35
+
+[sub_resource type="StandardMaterial3D" id="mat_magnet"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.55, 0.9, 1, 0.45)
+
+[sub_resource type="BoxMesh" id="mesh_chassis"]
+size = Vector3(0.96, 0.3, 1.8)
+
+[sub_resource type="BoxMesh" id="mesh_cabin"]
+size = Vector3(0.78, 0.22, 0.72)
+
+[sub_resource type="BoxMesh" id="mesh_nose"]
+size = Vector3(0.7, 0.06, 0.14)
+
+[sub_resource type="BoxMesh" id="mesh_spoiler"]
+size = Vector3(0.96, 0.05, 0.22)
+
+[sub_resource type="CylinderMesh" id="mesh_wheel"]
+top_radius = 0.19
+bottom_radius = 0.19
+height = 0.16
+radial_segments = 16
+
+[sub_resource type="BoxMesh" id="mesh_hub"]
+size = Vector3(0.18, 0.3, 0.07)
+
+[sub_resource type="CylinderMesh" id="mesh_magnet"]
+top_radius = 0.95
+bottom_radius = 0.95
+height = 0.02
+radial_segments = 24
+
+[sub_resource type="PhysicsMaterial" id="phys_body"]
+friction = 0.4
+
+[sub_resource type="ConvexPolygonShape3D" id="shape_chassis"]
+points = PackedVector3Array(0.48, 0.36, 0.55, 0.48, 0.5, 0.9, 0.48, 0.6, 0.9, 0.48, 0.36, -0.55, 0.48, 0.5, -0.9, 0.48, 0.6, -0.9, -0.48, 0.36, 0.55, -0.48, 0.5, 0.9, -0.48, 0.6, 0.9, -0.48, 0.36, -0.55, -0.48, 0.5, -0.9, -0.48, 0.6, -0.9)
+
+[sub_resource type="BoxShape3D" id="shape_cabin"]
+size = Vector3(0.78, 0.22, 0.72)
+
+[sub_resource type="ConvexPolygonShape3D" id="shape_roadster"]
+points = PackedVector3Array(0.68, 0.36, 0.603, -0.68, 0.36, 0.603, 0.68, 0.36, -0.497, -0.68, 0.36, -0.497, 0.58, 0.57, 1.4, -0.58, 0.57, 1.4, 0.6, 0.57, -1.3, -0.6, 0.57, -1.3, 0.66, 0.73, -1.25, -0.66, 0.73, -1.25, 0.7, 0.79, -0.647, -0.7, 0.79, -0.647, 0.48, 0.93, -0.397, -0.48, 0.93, -0.397, 0.48, 0.91, 0.103, -0.48, 0.91, 0.103, 0.7, 0.71, 0.753, -0.7, 0.71, 0.753, 0.5, 0.62, 1.4, -0.5, 0.62, 1.4)
+
+[node name="Roadster" type="RigidBody3D"]
+collision_layer = 8
+mass = 1000.0
+physics_material_override = SubResource("phys_body")
+gravity_scale = 0.0
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, 0.3, 0)
+inertia = Vector3(300, 360, 160)
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 8
+can_sleep = false
+linear_damp = 0.1
+angular_damp = 0.5
+script = ExtResource("1_script")
+
+[node name="Chassis" type="CollisionShape3D" parent="."]
+shape = SubResource("shape_chassis")
+
+[node name="Cabin" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.66, -0.2)
+shape = SubResource("shape_cabin")
+
+[node name="RoadsterBody" type="CollisionShape3D" parent="."]
+shape = SubResource("shape_roadster")
+disabled = true
+
+[node name="Container" type="Node3D" parent="."]
+
+[node name="FanGlow" type="MeshInstance3D" parent="Container"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17, 0)
+visible = false
+cast_shadow = 0
+mesh = SubResource("mesh_magnet")
+surface_material_override/0 = SubResource("mat_magnet")
+
+[node name="RoadsterModel" type="Node3D" parent="Container"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0.15, 0.053)
+visible = false
+
+[node name="roadster" parent="Container/RoadsterModel" instance=ExtResource("5_roadster")]
+
+[node name="Model" type="Node3D" parent="Container"]
+
+[node name="body" type="Node3D" parent="Container/Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+
+[node name="Chassis" type="MeshInstance3D" parent="Container/Model/body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+mesh = SubResource("mesh_chassis")
+surface_material_override/0 = SubResource("mat_body")
+
+[node name="Cabin" type="MeshInstance3D" parent="Container/Model/body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46, -0.2)
+mesh = SubResource("mesh_cabin")
+surface_material_override/0 = SubResource("mat_glass")
+
+[node name="Nose" type="MeshInstance3D" parent="Container/Model/body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41, 0.84)
+mesh = SubResource("mesh_nose")
+surface_material_override/0 = SubResource("mat_accent")
+
+[node name="Spoiler" type="MeshInstance3D" parent="Container/Model/body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.82)
+mesh = SubResource("mesh_spoiler")
+surface_material_override/0 = SubResource("mat_dark")
+
+[node name="wheel-front-left" type="Node3D" parent="Container/Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.34, 0.6)
+
+[node name="Tire" type="MeshInstance3D" parent="Container/Model/wheel-front-left"]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("mesh_wheel")
+surface_material_override/0 = SubResource("mat_dark")
+
+[node name="Hub" type="MeshInstance3D" parent="Container/Model/wheel-front-left"]
+mesh = SubResource("mesh_hub")
+surface_material_override/0 = SubResource("mat_metal")
+
+[node name="wheel-front-right" type="Node3D" parent="Container/Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.34, 0.6)
+
+[node name="Tire" type="MeshInstance3D" parent="Container/Model/wheel-front-right"]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("mesh_wheel")
+surface_material_override/0 = SubResource("mat_dark")
+
+[node name="Hub" type="MeshInstance3D" parent="Container/Model/wheel-front-right"]
+mesh = SubResource("mesh_hub")
+surface_material_override/0 = SubResource("mat_metal")
+
+[node name="wheel-back-left" type="Node3D" parent="Container/Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.34, -0.6)
+
+[node name="Tire" type="MeshInstance3D" parent="Container/Model/wheel-back-left"]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("mesh_wheel")
+surface_material_override/0 = SubResource("mat_dark")
+
+[node name="Hub" type="MeshInstance3D" parent="Container/Model/wheel-back-left"]
+mesh = SubResource("mesh_hub")
+surface_material_override/0 = SubResource("mat_metal")
+
+[node name="wheel-back-right" type="Node3D" parent="Container/Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.34, -0.6)
+
+[node name="Tire" type="MeshInstance3D" parent="Container/Model/wheel-back-right"]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("mesh_wheel")
+surface_material_override/0 = SubResource("mat_dark")
+
+[node name="Hub" type="MeshInstance3D" parent="Container/Model/wheel-back-right"]
+mesh = SubResource("mesh_hub")
+surface_material_override/0 = SubResource("mat_metal")
+
+[node name="ScreechSound" type="AudioStreamPlayer3D" parent="Container"]
+stream = ExtResource("2_skid")
+autoplay = true
+
+[node name="EngineSound" type="AudioStreamPlayer3D" parent="Container"]
+stream = ExtResource("3_engine")
+autoplay = true
+
+[node name="ImpactSound" type="AudioStreamPlayer3D" parent="Container"]
+stream = ExtResource("4_impact")

@@ -1,0 +1,12 @@
+{
+  "name": "traffic_light",
+  "warnings": [],
+  "kind": "prop",
+  "size_m": [
+    4.0,
+    3.75,
+    1.229
+  ],
+  "animations": [],
+  "requested_animations": []
+}

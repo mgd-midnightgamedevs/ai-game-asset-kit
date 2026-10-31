@@ -1,0 +1,12 @@
+{
+  "name": "bus_stop",
+  "warnings": [],
+  "kind": "prop",
+  "size_m": [
+    3.0,
+    1.72,
+    1.215
+  ],
+  "animations": [],
+  "requested_animations": []
+}

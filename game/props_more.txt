@@ -1,0 +1,8 @@
+# 10/23 추가 에셋(DAY 1·2): 이름 | 설명 | 종류 | 크기(차는 길이, 소품은 가장 긴 변, m)
+semi_truck | white semi truck with a plain white box trailer, no logos, no text | car | 11.8
+pickup | modern pickup truck, plain silver paint, no logos | car | 3.4
+bus_stop | modern city bus stop shelter with glass panels and a bench, no text, no ads | prop | 3.0
+trash_bin | dark gray metal street trash bin | prop | 0.8
+bollard | short dark gray metal street bollard with a reflective band | prop | 0.7
+barrier_gate | parking garage entrance barrier gate with a ticket machine and a yellow and black striped boom arm | prop | 3.5
+ev_charger | electric vehicle charging station pillar with a charging cable, white, no text | prop | 1.3

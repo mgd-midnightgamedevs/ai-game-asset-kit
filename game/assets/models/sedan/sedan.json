@@ -1,0 +1,12 @@
+{
+  "name": "sedan",
+  "warnings": [],
+  "kind": "car",
+  "size_m": [
+    1.356,
+    1.063,
+    3.0
+  ],
+  "animations": [],
+  "requested_animations": []
+}
