@@ -20,6 +20,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SHOTS = {
     "stage_kick": ("G1 훅: 시연장 장애물 차 셋·트럭 위로 옆으로 한 바퀴(고정 카메라, 깨끗한 화면)", "res://tests/autopilot_stage_kick.tscn", ["look=roadster", "cam=spot:kick", "clean=1", "quit=9"]),
     "stage_ramp": ("G2 시연장 램프: 천장에 매달렸다 옆으로 돌며 떨어져 착지(고정 카메라)", "res://tests/autopilot_stage.tscn", ["look=roadster", "cam=spot:ramp", "clean=1", "quit=17"]),
+    "stage_lift": ("썸네일: 시연장 리프트로 첫 차 위에 뜬 순간(2.2초, 차가 화면 가운데인 낮은 고정 카메라)", "res://tests/autopilot_stage_kick.tscn", ["look=roadster", "cam=spot:lift", "clean=1", "quit=2.4"]),
     "stage_kick_chase": ("G1 예비: 같은 킥플립을 추적 카메라로", "res://tests/autopilot_stage_kick.tscn", ["look=roadster", "clean=1", "quit=9"]),
     "day1": ("G3 DAY 1 회사 앞 마지막 한 칸: 트럭 넘어 앞차보다 먼저 주차(추적 카메라)", "res://tests/autopilot_day1.tscn", ["look=roadster"]),
     "day2": ("DAY 2 주차 타워: 1층 통로 → 곡면 옹벽 흡착 → 거꾸로 날아 옥상 빈칸(추적 카메라)", "res://tests/autopilot_day2.tscn", ["look=roadster"]),

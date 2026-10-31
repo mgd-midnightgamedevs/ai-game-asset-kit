@@ -1,15 +1,16 @@
 class_name Thruster extends Node3D
 ## 냉가스(압축 공기) 추진기 하나. 로컬 -Y로 뿜고, 차는 +Y 쪽으로 밀린다.
-## 불꽃이 아니라 흰 공기 분사: 짧고 곧은 흰 기둥과 금방 흩어지는 수증기.
+## 불꽃이 아니라 흰 공기 분사: 노즐에서 끝으로 흐려지는 기둥(shaders/plume.gdshader)과 금방 흩어지는 수증기.
 
 const PLUME_LENGTH := 1.1
+const PLUME_SHADER := preload("res://shaders/plume.gdshader")
 
 var power := 0.0
 
 static var _nozzle_mesh: CylinderMesh
 static var _nozzle_mat: StandardMaterial3D
 static var _plume_mesh: CylinderMesh
-static var _plume_mat: StandardMaterial3D
+static var _plume_mat: ShaderMaterial
 static var _puff_mesh: SphereMesh
 static var _puff_mat: StandardMaterial3D
 static var _puff_ramp: Gradient
@@ -39,11 +40,8 @@ static func _init_shared() -> void:
 	_plume_mesh.radial_segments = 10
 	_plume_mesh.cap_top = false
 	_plume_mesh.cap_bottom = false
-	_plume_mat = StandardMaterial3D.new()
-	_plume_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	_plume_mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	_plume_mat.cull_mode = BaseMaterial3D.CULL_DISABLED
-	_plume_mat.albedo_color = Color(0.95, 0.98, 1.0, 0.75)
+	_plume_mat = ShaderMaterial.new()
+	_plume_mat.shader = PLUME_SHADER
 
 	_puff_mesh = SphereMesh.new()
 	_puff_mesh.radius = 0.12
